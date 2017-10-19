@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PhotoAlbum</string>
+    <string name="albums_activity_name">PhotoAlbum</string>
+    <string name="loading_error">Loading failed</string>
+</resources>
