@@ -25,7 +25,7 @@ public class ItemGalleryViewModel extends BaseObservable {
         this.photo = photo;
     }
 
-    @BindingAdapter({"imageUrl"})
+    @BindingAdapter({"thumbnailUrl"})
     public static void loadThumbnail(ImageView imageView, String url) {
         Glide.with(imageView.getContext()).load(url).into(imageView);
         int width = ((View)imageView.getParent()).getWidth();

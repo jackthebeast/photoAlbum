@@ -20,7 +20,7 @@
 
         <ImageView
             android:id="@+id/gallery_item_icon"
-            imageUrl="@{galleryViewModel.thumbnailUrl}"
+            thumbnailUrl="@{galleryViewModel.thumbnailUrl}"
             android:layout_width="@dimen/photo_thumbnail"
             android:layout_height="@dimen/photo_thumbnail"
             android:layout_marginLeft="8dp"
