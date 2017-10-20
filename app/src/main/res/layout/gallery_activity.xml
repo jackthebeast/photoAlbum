@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.jacopo.photoalbum.viewmodel.gallery.GalleryViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/progress_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:visibility="@{mainViewModel.galleryProgress}"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:visibility="@{mainViewModel.galleryRecycler}"
+            tools:listitem="@layout/item_gallery"/>
+
+    </LinearLayout>
+
+</layout>

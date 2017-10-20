@@ -6,6 +6,7 @@ import android.renderscript.BaseObj;
 import android.view.View;
 
 import com.jacopo.photoalbum.model.Album;
+import com.jacopo.photoalbum.view.gallery.GalleryActivity;
 
 /**
  * Created by jacop on 19/10/2017.
@@ -27,7 +28,7 @@ public class ItemAlbumViewModel extends BaseObservable {
     }
 
     public void onItemClick(View view) {
-        //TODO
+        GalleryActivity.launchGallery(view.getContext(), album);
     }
 
 

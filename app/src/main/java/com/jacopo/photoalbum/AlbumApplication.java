@@ -5,6 +5,8 @@ import android.content.Context;
 
 import com.jacopo.photoalbum.data.album.AlbumFactory;
 import com.jacopo.photoalbum.data.album.AlbumService;
+import com.jacopo.photoalbum.data.photo.PhotoFactory;
+import com.jacopo.photoalbum.data.photo.PhotoService;
 import com.jacopo.photoalbum.model.Album;
 
 import io.reactivex.Scheduler;
@@ -17,6 +19,7 @@ import io.reactivex.schedulers.Schedulers;
 public class AlbumApplication extends Application{
 
     private AlbumService albumService;
+    private PhotoService photoService;
     private Scheduler scheduler;
 
     public static AlbumApplication getApp(Context context){
@@ -37,6 +40,12 @@ public class AlbumApplication extends Application{
         if(albumService == null)
             albumService = AlbumFactory.create();
         return albumService;
+    }
+
+    public PhotoService getPhotoService(){
+        if(photoService == null)
+            photoService = PhotoFactory.create();
+        return photoService;
     }
 
 
