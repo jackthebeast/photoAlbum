@@ -10,18 +10,18 @@ import java.io.Serializable;
 
 public class Photo implements Serializable{
 
-    //@SerializedName("userId")
-    public int userId;
+    @SerializedName("albumId")
+    public int albumId;
 
-    //@SerializedName("id")
+    @SerializedName("id")
     public int id;
 
-    //@SerializedName("title")
+    @SerializedName("title")
     public String title;
 
-    //@SerializedName("url")
+    @SerializedName("url")
     public String url;
 
-    //@SerializedName("thumbnailUrl")
+    @SerializedName("thumbnailUrl")
     public String thumbnailUrl;
 }
