@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.jacopo.photoalbum.viewmodel.photo.PhotoViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            imageUrl="@{mainViewModel.imageUrl}" />
+
+        <TextView
+            android:id="@+id/photo_label_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="title"
+            android:text="@{mainViewModel.title}"
+            android:maxLines="4"
+            android:textSize="@dimen/photo_text_size"
+            android:textColor="@android:color/white"
+            style="@style/shadow_text"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
+    </RelativeLayout>
+
+</layout>

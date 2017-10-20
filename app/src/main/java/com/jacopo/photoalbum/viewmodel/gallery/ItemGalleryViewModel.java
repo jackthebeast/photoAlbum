@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.jacopo.photoalbum.model.Album;
 import com.jacopo.photoalbum.model.Photo;
+import com.jacopo.photoalbum.view.photo.PhotoActivity;
 
 /**
  * Created by jacop on 19/10/2017.
@@ -43,7 +44,7 @@ public class ItemGalleryViewModel extends BaseObservable {
     }
 
     public void onItemClick(View view) {
-        //TODO
+        PhotoActivity.launchPhoto(context, photo);
     }
 
 

@@ -2,5 +2,6 @@
     <string name="app_name">PhotoAlbum</string>
     <string name="albums_activity_name">Albums</string>
     <string name="gallery_activity_name">Gallery</string>
+    <string name="photo_activity_name">Photo</string>
     <string name="loading_error">Loading failed</string>
 </resources>
