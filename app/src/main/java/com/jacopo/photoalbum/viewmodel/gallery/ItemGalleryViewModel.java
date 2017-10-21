@@ -3,10 +3,12 @@ package com.jacopo.photoalbum.viewmodel.gallery;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
+import android.support.v4.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.jacopo.photoalbum.R;
 import com.jacopo.photoalbum.model.Album;
 import com.jacopo.photoalbum.model.Photo;
 import com.jacopo.photoalbum.view.photo.PhotoActivity;
@@ -44,7 +46,9 @@ public class ItemGalleryViewModel extends BaseObservable {
     }
 
     public void onItemClick(View view) {
-        PhotoActivity.launchPhoto(context, photo);
+        Pair<View, String> image = new Pair<>(view.findViewById(R.id.gallery_item_icon),view.getContext().getResources().getString(R.string.photo_transition_image));
+        Pair<View, String> text = new Pair<>(view.findViewById(R.id.gallery_label_title),view.getContext().getResources().getString(R.string.photo_transition_text));
+        PhotoActivity.launchPhoto(context, photo, image, text);
     }
 
 

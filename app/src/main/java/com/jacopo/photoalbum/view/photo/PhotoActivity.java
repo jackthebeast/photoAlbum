@@ -1,13 +1,17 @@
 package com.jacopo.photoalbum.view.photo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.view.View;
 
 import com.jacopo.photoalbum.R;
 import com.jacopo.photoalbum.databinding.GalleryActivityBinding;
@@ -50,10 +54,13 @@ public class PhotoActivity extends AppCompatActivity {
         this.photo = photo;
     }
 
-    public static void launchPhoto(Context context, Photo photo) {
+    public static void launchPhoto(Context context, Photo photo, Pair<View, String>... sharedElements) {
         Intent intent = new Intent(context, PhotoActivity.class);
         intent.putExtra(PARAM_PHOTO, photo);
-        context.startActivity(intent);
+
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)context, sharedElements );
+
+        context.startActivity(intent, options.toBundle());
     }
 
     private void initDataBinding(){

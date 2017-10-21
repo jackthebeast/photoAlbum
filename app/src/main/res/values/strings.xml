@@ -4,4 +4,7 @@
     <string name="gallery_activity_name">Gallery</string>
     <string name="photo_activity_name">Photo</string>
     <string name="loading_error">Loading failed</string>
+
+    <string name="photo_transition_image">photo_transition_image</string>
+    <string name="photo_transition_text">photo_transition_text</string>
 </resources>

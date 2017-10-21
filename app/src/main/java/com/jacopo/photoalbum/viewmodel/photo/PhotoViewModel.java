@@ -32,18 +32,13 @@ import io.reactivex.functions.Consumer;
 public class PhotoViewModel{
 
     private final Photo photo;
-    public ObservableInt photoProgress;
-    public ObservableInt photoRecycler;
 
     private Context context;
 
     public PhotoViewModel(Context context, Photo photo){
         this.context = context;
-        photoRecycler = new ObservableInt(View.GONE);
-        photoProgress = new ObservableInt(View.GONE);
         this.photo = photo;
 
-        initializeViews();
     }
 
     @BindingAdapter({"imageUrl"})
@@ -57,12 +52,6 @@ public class PhotoViewModel{
 
     public String getTitle(){
         return photo.title;
-    }
-
-
-    private void initializeViews(){
-        photoRecycler.set(View.GONE);
-        photoProgress.set(View.VISIBLE);
     }
 
 }
