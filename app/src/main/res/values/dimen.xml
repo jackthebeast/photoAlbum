@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="photo_thumbnail">150dp</dimen>
-    <dimen name="album_item_text_size">17sp</dimen>
+    <dimen name="album_item_text_size">20sp</dimen>
+    <dimen name="album_item_user_text_size">15sp</dimen>
     <dimen name="gallery_item_text_size">15sp</dimen>
-    <dimen name="photo_text_size">20sp</dimen>
+    <dimen name="photo_text_size">22sp</dimen>
 </resources>

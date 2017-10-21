@@ -2,9 +2,9 @@ package com.jacopo.photoalbum.viewmodel.album;
 
 import android.content.Context;
 import android.databinding.BaseObservable;
-import android.renderscript.BaseObj;
 import android.view.View;
 
+import com.jacopo.photoalbum.R;
 import com.jacopo.photoalbum.model.Album;
 import com.jacopo.photoalbum.view.gallery.GalleryActivity;
 
@@ -31,9 +31,14 @@ public class ItemAlbumViewModel extends BaseObservable {
         GalleryActivity.launchGallery(view.getContext(), album);
     }
 
-
     public String getTitle(){
         return album.title;
+    }
+
+    public String getUserName(){
+        String toReturn = context.getResources().getString(R.string.by) + " " ;
+            toReturn += album.username;
+        return toReturn;
     }
 
 

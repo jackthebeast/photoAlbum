@@ -7,7 +7,8 @@ import com.jacopo.photoalbum.data.album.AlbumFactory;
 import com.jacopo.photoalbum.data.album.AlbumService;
 import com.jacopo.photoalbum.data.photo.PhotoFactory;
 import com.jacopo.photoalbum.data.photo.PhotoService;
-import com.jacopo.photoalbum.model.Album;
+import com.jacopo.photoalbum.data.user.UserFactory;
+import com.jacopo.photoalbum.data.user.UserService;
 
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
@@ -21,6 +22,7 @@ public class AlbumApplication extends Application{
     private AlbumService albumService;
     private PhotoService photoService;
     private Scheduler scheduler;
+    private UserService userService;
 
     public static AlbumApplication getApp(Context context){
         return (AlbumApplication) context.getApplicationContext();
@@ -46,6 +48,12 @@ public class AlbumApplication extends Application{
         if(photoService == null)
             photoService = PhotoFactory.create();
         return photoService;
+    }
+
+    public UserService getUserService(){
+        if(userService == null)
+            userService = UserFactory.create();
+        return userService;
     }
 
 

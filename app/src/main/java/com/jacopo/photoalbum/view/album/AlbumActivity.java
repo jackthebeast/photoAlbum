@@ -39,6 +39,7 @@ public class AlbumActivity extends AppCompatActivity implements Observer {
         AlbumAdapter adapter = new AlbumAdapter();
         listAlbum.setAdapter(adapter);
         listAlbum.setLayoutManager(new LinearLayoutManager(this));
+        listAlbum.addItemDecoration(new AlbumDivider(this));
     }
 
     private void initDataBinding(){
@@ -61,7 +62,4 @@ public class AlbumActivity extends AppCompatActivity implements Observer {
         albumViewModel.reset();
     }
 
-    private void startActivityViewAlbum(){
-        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PeopleFactory.PROJECT_URL)));
-    }
 }

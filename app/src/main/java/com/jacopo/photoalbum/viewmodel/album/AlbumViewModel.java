@@ -10,7 +10,10 @@ import com.jacopo.photoalbum.R;
 import com.jacopo.photoalbum.data.FactoryUtils;
 import com.jacopo.photoalbum.data.album.AlbumFactory;
 import com.jacopo.photoalbum.data.album.AlbumService;
+import com.jacopo.photoalbum.data.user.UserFactory;
+import com.jacopo.photoalbum.data.user.UserService;
 import com.jacopo.photoalbum.model.Album;
+import com.jacopo.photoalbum.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +29,9 @@ import io.reactivex.functions.Consumer;
  */
 
 public class AlbumViewModel extends Observable{
-    
     public ObservableInt albumProgress;
     public ObservableInt albumRecycler;
-    
+
     private List<Album> albumList;
     private Context context;
     private CompositeDisposable compositeDisposable;
@@ -44,7 +46,7 @@ public class AlbumViewModel extends Observable{
         initializeViews();
         fetchAlbumList();
     }
-    
+
     private void initializeViews(){
         albumRecycler.set(View.GONE);
         albumProgress.set(View.VISIBLE);
@@ -52,6 +54,11 @@ public class AlbumViewModel extends Observable{
 
     private void setAlbumDataSet(List<Album> albums){
         albumList.addAll(albums);
+        fetchUserList();
+    }
+
+    private void setUserDataSet(List<User> users){
+        AlbumFactory.matchWhithAlbums(albumList, users);
         setChanged();
         notifyObservers();
     }
@@ -72,20 +79,45 @@ public class AlbumViewModel extends Observable{
                     @Override
                     public void accept(List<Album> albums) throws Exception {
                         setAlbumDataSet(albums);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(context, context.getResources().getText(R.string.loading_error), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        compositeDisposable.add(disposable);
+    }
+
+    private void fetchUserList() {
+
+        AlbumApplication albumApplication = AlbumApplication.createApp(context);
+        UserService userService = albumApplication.getUserService();
+
+        Disposable disposable = userService.fetchUsers(FactoryUtils.BASE_URL + UserFactory.USER_URL)
+                .subscribeOn(albumApplication.subscribeScheduler())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<User>>() {
+                    @Override
+                    public void accept(List<User> users) throws Exception {
                         albumProgress.set(View.GONE);
                         albumRecycler.set(View.VISIBLE);
+                        setUserDataSet(users);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                         Toast.makeText(context, context.getResources().getText(R.string.loading_error), Toast.LENGTH_LONG).show();
                         albumProgress.set(View.GONE);
-                        albumRecycler.set(View.GONE);
+                        albumRecycler.set(View.VISIBLE);
                     }
                 });
 
         compositeDisposable.add(disposable);
     }
+
+
 
     public void reset() {
         unSubscribeFromObservable();
@@ -97,6 +129,4 @@ public class AlbumViewModel extends Observable{
             compositeDisposable.dispose();
         }
     }
-
-    
 }

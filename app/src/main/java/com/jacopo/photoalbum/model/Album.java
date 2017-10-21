@@ -24,4 +24,7 @@ public class Album implements Serializable{
 
     @SerializedName("title")
     public String title;
+
+    @SerializedName("username")
+    public String username;
 }
