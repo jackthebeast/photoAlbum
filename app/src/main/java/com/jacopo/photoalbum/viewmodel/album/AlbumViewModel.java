@@ -83,7 +83,7 @@ public class AlbumViewModel extends Observable{
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        Toast.makeText(context, context.getResources().getText(R.string.loading_error), Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, String.format(context.getResources().getString(R.string.loading_error), "Albums"), Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -108,7 +108,7 @@ public class AlbumViewModel extends Observable{
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        Toast.makeText(context, context.getResources().getText(R.string.loading_error), Toast.LENGTH_LONG).show();
+                        Toast.makeText(context,String.format(context.getResources().getString(R.string.loading_error), "Users"), Toast.LENGTH_LONG).show();
                         albumProgress.set(View.GONE);
                         albumRecycler.set(View.VISIBLE);
                     }

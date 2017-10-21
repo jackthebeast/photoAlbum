@@ -81,7 +81,7 @@ public class GalleryViewModel extends Observable{
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        Toast.makeText(context, context.getResources().getText(R.string.loading_error), Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, String.format(context.getResources().getString(R.string.loading_error), "Photos"), Toast.LENGTH_LONG).show();
                         galleryProgress.set(View.GONE);
                         galleryRecycler.set(View.GONE);
                     }
