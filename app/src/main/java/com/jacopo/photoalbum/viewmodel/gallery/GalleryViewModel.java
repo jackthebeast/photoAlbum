@@ -90,6 +90,16 @@ public class GalleryViewModel extends Observable{
         compositeDisposable.add(disposable);
     }
 
+    public String getTitle(){
+        return album.title;
+    }
+
+    public String getUserName(){
+        String toReturn = context.getResources().getString(R.string.by) + " " ;
+        toReturn += album.username;
+        return toReturn;
+    }
+
     public void reset() {
         unSubscribeFromObservable();
         compositeDisposable = null;

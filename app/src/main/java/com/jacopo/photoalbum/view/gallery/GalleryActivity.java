@@ -1,14 +1,18 @@
 package com.jacopo.photoalbum.view.gallery;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.view.View;
 
 import com.jacopo.photoalbum.R;
 import com.jacopo.photoalbum.databinding.GalleryActivityBinding;
@@ -65,10 +69,13 @@ public class GalleryActivity extends AppCompatActivity implements Observer {
         return (int) (metrics.widthPixels / getResources().getDimension(R.dimen.photo_thumbnail));
     }
 
-    public static void launchGallery(Context context, Album album) {
+    public static void launchGallery(Context context, Album album, Pair<View, String>... sharedElements) {
         Intent intent = new Intent(context, GalleryActivity.class);
         intent.putExtra(PARAM_ALBUM, album);
-        context.startActivity(intent);
+
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)context, sharedElements );
+
+        context.startActivity(intent, options.toBundle());
     }
 
     private void initDataBinding(){

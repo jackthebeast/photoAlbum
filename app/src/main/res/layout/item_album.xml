@@ -14,8 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{albumViewModel::onItemClick}"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground">
 
         <ImageView
             android:id="@+id/album_item_icon"
@@ -40,7 +43,8 @@
             tools:text="title"
             app:layout_constraintLeft_toRightOf="@+id/album_item_icon"
             android:layout_marginStart="8dp"
-            tools:layout_editor_absoluteY="8dp" />
+            tools:layout_editor_absoluteY="8dp"
+            android:transitionName="@string/album_transition_title"/>
 
 
         <TextView
@@ -51,7 +55,8 @@
             tools:text="username"
             app:layout_constraintLeft_toLeftOf="@+id/album_label_title"
             app:layout_constraintTop_toBottomOf="@+id/album_label_title"
-            android:layout_marginStart="8dp" />
+            android:layout_marginStart="8dp"
+            android:transitionName="@string/album_transition_username"/>
     </android.support.constraint.ConstraintLayout>
 
 </layout>

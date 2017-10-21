@@ -15,6 +15,38 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/gallery_label_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mainViewModel.title}"
+                android:textColor="@android:color/background_dark"
+                android:textSize="@dimen/album_item_text_size"
+                tools:text="title"
+                android:layout_marginStart="8dp"
+                android:transitionName="@string/album_transition_title"/>
+
+
+            <TextView
+                android:id="@+id/gallery_label_username"
+                android:layout_width="129dp"
+                android:layout_height="18dp"
+                android:text="@{mainViewModel.userName}"
+                tools:text="username"
+                app:layout_constraintLeft_toLeftOf="@+id/gallery_label_title"
+                app:layout_constraintTop_toBottomOf="@+id/gallery_label_title"
+                android:layout_marginStart="8dp"
+                android:transitionName="@string/album_transition_username"/>
+        </android.support.constraint.ConstraintLayout>
+
+
         <ProgressBar
             android:id="@+id/progress_gallery"
             android:layout_width="wrap_content"

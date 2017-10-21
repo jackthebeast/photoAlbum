@@ -8,4 +8,6 @@
 
     <string name="photo_transition_image">photo_transition_image</string>
     <string name="photo_transition_text">photo_transition_text</string>
+    <string name="album_transition_username">album_transition_title</string>
+    <string name="album_transition_title">album_transition_username</string>
 </resources>

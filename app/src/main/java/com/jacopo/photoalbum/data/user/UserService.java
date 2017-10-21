@@ -1,6 +1,5 @@
 package com.jacopo.photoalbum.data.user;
 
-import com.jacopo.photoalbum.model.Photo;
 import com.jacopo.photoalbum.model.User;
 
 import java.util.List;
