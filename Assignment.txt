@@ -1,0 +1,5 @@
+Create a simple album list, photo list and photo detail application, using data from:
+https://jsonplaceholder.typicode.com
+Your project should be hosted on GitHub and shared with stephan-mediamonks. From the moment of the initial commit, you have 48 hours to do as much as you can. Try to keep your commits clear!
+There are no rules other than it should compile, just make it cool! Make sure you make use of RxJava and Retrofit.
+You will be judged on things like architecture, readability, animation, git usage, design, performance, third party usage and more.
